@@ -1,4 +1,6 @@
-Date: Wed Sep  4 01:14:46 PDT 2024
+Date: Wed Sep  4 11:33:55 PDT 2024
 SeaDAS
+Daily Status: 
+Storage Status: 
+Location Status: 
 Rainier
-Alaska

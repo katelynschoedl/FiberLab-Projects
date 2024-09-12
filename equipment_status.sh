@@ -207,12 +207,12 @@ echo "  {" >> $OUTPUT_FILE
 echo "###################"
 echo "       Onyx @AK    "
 echo "###################"
+echo " " >> $OUTPUT_FILE
+echo "Onyx @AK" >> $OUTPUT_FILE
+echo "  {" >> $OUTPUT_FILE
 echo "Temporarily Down"
 echo " "
-echo " "
-echo "Checks completed."
-echo " "
-echo "Output written to $OUTPUT_FILE"
+
 
 
 ##################
@@ -366,3 +366,8 @@ echo " "
 echo " "
 
 ##################################################
+
+echo " "
+echo "Checks completed."
+echo " "
+echo "Output written to $OUTPUT_FILE"

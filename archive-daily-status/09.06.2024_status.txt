@@ -1,0 +1,63 @@
+Date: Fri Sep  6 09:51:40 PDT 2024
+SeaDAS
+OptoDAS
+Daily Status: 
+Storage Status: 
+Location Status: 
+Rainier
+Alaska
+
+##############
+
+Onyx-0186 is still running in the lab recording SeaDAS data to SSD1.
+sintela@ONYX-0186:/mnt$ df -H
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/mmcblk0p1   30G   16G   13G  54% /
+none             17G     0   17G   0% /dev
+tmpfs            17G  8.1M   17G   1% /dev/shm
+tmpfs            17G  8.6M   17G   1% /run
+tmpfs           5.3M     0  5.3M   0% /run/lock
+tmpfs            17G     0   17G   0% /sys/fs/cgroup
+/dev/nvme0n1p1   34G  3.5G   29G  11% /opt/onyx
+/dev/nvme0n1p2   34G  1.9G   31G   6% /opt/onyx2
+/dev/nvme0n1p3  178G   81M  169G   1% /mnt/intSSD
+/dev/sda1       8.0T  504M  7.6T   1% /mnt/extSSD1
+/dev/sdb1       8.0T   97M  7.6T   1% /mnt/extSSD2
+tmpfs           3.4G     0  3.4G   0% /run/user/1000
+sintela@ONYX-0186:/mnt/extSSD1/ManualRecorders/decimator$ ls | tail
+decimator_2024-09-05_19.17.25_UTC_000000.h5
+decimator_2024-09-05_19.18.25_UTC_000001.h5
+decimator_2024-09-05_19.19.25_UTC_000002.h5
+decimator_2024-09-05_19.20.25_UTC_000003.h5
+decimator_2024-09-05_19.21.25_UTC_000004.h5
+decimator_2024-09-05_19.22.25_UTC_000005.h5
+decimator_2024-09-05_19.23.25_UTC_000006.h5
+isRecording.txt
+The OptoDAS is still in the lab recording SeaDAS data, 73% of storage destination is full.
+Rainier (Onyx-0204): Running and recording to SSD1 & SSD3.
+/dev/sdb1       8.0T  6.6T  1.1T  87% /mnt/extSSD1
+/dev/sda1       8.0T  7.2T  407G  95% /mnt/extSSD2
+/dev/sdc1       8.0T  4.9T  2.7T  65% /mnt/extSSD3
+
+extSSD2/rainier:
+    decimator_2024-09-06_16.47.00_UTC.h5
+    decimator_2024-09-06_16.48.00_UTC.h5
+    decimator_2024-09-06_16.49.00_UTC.h5
+    decimator_2024-09-06_16.50.00_UTC.h5
+    decimator_2024-09-06_16.51.00_UTC.h5
+    decimator_2024-09-06_16.52.00_UTC.h5
+    decimator_2024-09-06_16.53.00_UTC.h5
+    decimator_2024-09-06_16.54.00_UTC.h5
+    decimator_2024-09-06_16.55.00_UTC.h5
+
+extSSD3/rainier_50Hz:
+    decimator1_2024-09-06_16.47.00_UTC.h5
+    decimator1_2024-09-06_16.48.00_UTC.h5
+    decimator1_2024-09-06_16.49.00_UTC.h5
+    decimator1_2024-09-06_16.50.00_UTC.h5
+    decimator1_2024-09-06_16.51.00_UTC.h5
+    decimator1_2024-09-06_16.52.00_UTC.h5
+    decimator1_2024-09-06_16.53.00_UTC.h5
+    decimator1_2024-09-06_16.54.00_UTC.h5
+    decimator1_2024-09-06_16.55.00_UTC.h5
+Alaska VPN is still down.

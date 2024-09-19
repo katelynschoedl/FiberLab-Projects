@@ -10,7 +10,7 @@ export OUTPUT_FILE
 echo "Date: $(date)" >  $OUTPUT_FILE
 
 # Create an archive directory if it doesn't exist
-ARCHIVE_DIR="archive"
+ARCHIVE_DIR="archive-daily-status"
 mkdir -p "$ARCHIVE_DIR"
 
 # Move old reports to the archive directory

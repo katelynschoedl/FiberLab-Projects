@@ -1,0 +1,112 @@
+Date: Thu Sep 12 13:44:30 PDT 2024
+ 
+Onyx 0204
+  {
+    Device Status: Running
+    Cable Location: rainier
+     
+    Devices and Space Remaining:
+    NAME           SIZE TYPE MOUNTPOINT
+    sda            7.3T disk
+    └─sda1         7.3T part /mnt/extSSD2 -> Used: 1.7T, Remaining: 5.3T, 23.2877% FULL
+    sdb            7.3T disk
+    └─sdb1         7.3T part /mnt/extSSD1 -> Used: 6.1T, Remaining: 797G, 83.5616% FULL
+    sdc            7.3T disk
+    └─sdc1         7.3T part /mnt/extSSD3 -> Used: 4.9T, Remaining: 2.0T, 67.1233% FULL
+    mmcblk0       29.1G disk
+    ├─mmcblk0p1     28G part / -> Used: 15G, Remaining: 12G, 53.5714% FULL
+    ├─mmcblk0p2    500K part
+    ├─mmcblk0p3    500K part
+    ├─mmcblk0p4      4M part
+    ├─mmcblk0p5      4M part
+    ├─mmcblk0p6    512K part
+    ├─mmcblk0p7    512K part
+    ├─mmcblk0p8    384K part
+    ├─mmcblk0p9    384K part
+    ├─mmcblk0p10     2M part
+    ├─mmcblk0p11     2M part
+    ├─mmcblk0p12   128K part
+    ├─mmcblk0p13   128K part
+    ├─mmcblk0p14     1M part
+    ├─mmcblk0p15     1M part
+    ├─mmcblk0p16     1M part
+    ├─mmcblk0p17     1M part
+    ├─mmcblk0p18   256K part
+    ├─mmcblk0p19   256K part
+    ├─mmcblk0p20   512K part
+    ├─mmcblk0p21   512K part
+    ├─mmcblk0p22     4M part
+    ├─mmcblk0p23     4M part
+    ├─mmcblk0p24   512K part
+    ├─mmcblk0p25   512K part
+    ├─mmcblk0p26     6M part
+    ├─mmcblk0p27     6M part
+    ├─mmcblk0p28   128M part
+    ├─mmcblk0p29   128M part
+    ├─mmcblk0p30    64M part
+    ├─mmcblk0p31    64M part
+    ├─mmcblk0p32   512K part
+    ├─mmcblk0p33   512K part
+    ├─mmcblk0p34     1M part
+    ├─mmcblk0p35     8M part
+    ├─mmcblk0p36     8M part
+    └─mmcblk0p37 708.5M part
+    mmcblk0boot0     8M disk
+    mmcblk0boot1     8M disk
+    mmcblk0rpmb      4M disk
+    zram0            2G disk [SWAP]
+    zram1            2G disk [SWAP]
+    zram2            2G disk [SWAP]
+    zram3            2G disk [SWAP]
+    zram4            2G disk [SWAP]
+    zram5            2G disk [SWAP]
+    zram6            2G disk [SWAP]
+    zram7            2G disk [SWAP]
+    nvme0n1      232.9G disk
+    ├─nvme0n1p1     32G part /opt/onyx -> Used: 3.4G, Remaining: 27G, 10.625% FULL
+    ├─nvme0n1p2     32G part /opt/onyx2 -> Used: 3.0G, Remaining: 27G, 9.375% FULL
+    └─nvme0n1p3  168.9G part /mnt/intSSD -> Used: 83M, Remaining: 157G, 0.0488281% FULL
+  }
+    Connected to NAS
+    
+    Filesystem              Size  Used Avail Use% Mounted on
+    /dev/md0                8.4G  1.5G  6.9G  18% /
+    devtmpfs                4.2G     0  4.2G   0% /dev
+    tmpfs                   4.2G  246k  4.2G   1% /dev/shm
+    tmpfs                   4.2G   17M  4.2G   1% /run
+    tmpfs                   4.2G     0  4.2G   0% /sys/fs/cgroup
+    tmpfs                   4.2G  738k  4.2G   1% /tmp
+    /dev/mapper/cachedev_0   88T   46T   43T  52% /volume1
+    
+    Most recent files:
+    @eaDir
+    rainier
+     
+    @eaDir/:
+      Last 10 items in @eaDir/:
+      NO_ITEMS
+    
+ 
+ 
+Onyx 0186
+  {
+ 
+OptoDAS
+  {
+    Device Status: Running
+    Cable Location: seadas
+    Storage Used on Active Mountpoint: 74.46869203295127%
+     
+    Devices and Space Remaining:
+    NAME          SIZE TYPE MOUNTPOINT
+    sda          76.4T disk
+    └─sda1       76.4T part /raid1 -> Used: 57T, Remaining: 20T, 74.026% FULL
+    sdc           3.7T disk
+    └─sdc1        3.7T part /mnt/usb -> Used: 3.5T, Remaining: 12M, 94.5946% FULL
+    nvme0n1     238.5G disk
+    ├─nvme0n1p1   512M part /boot/efi -> Used: 5.0M, Remaining: 507M, 0.978474% FULL
+    ├─nvme0n1p2     2G part [SWAP]
+    ├─nvme0n1p3    50G part / -> Used: 17G, Remaining: 31G, 34.6939% FULL
+    └─nvme0n1p4   186G part /home -> Used: 27G, Remaining: 160G, 14.5161% FULL
+  }
+

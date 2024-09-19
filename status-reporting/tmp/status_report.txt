@@ -1,0 +1,27 @@
+Server: ONYX-0186
+Command: df -H
+
+Command: ls /mnt/extSSD1/ManualRecorders/decimator | tail
+
+
+##################################################
+Server: ONYX-0204
+Command: df -H /mnt/extSSD1 /mnt/extSSD2 /mnt/extSSD3
+
+Command: ls /mnt/extSSD1/rainier | tail
+
+Command: ls /mnt/extSSD2/rainier | tail
+
+Command: ls /mnt/extSSD3/rainier | tail
+
+
+##################################################
+Server: DASSRV056
+Command: curl http://10.158.15.97:10532/optodas/api/v2/status
+
+Command: df -H
+
+Command: ls /mnt/usb
+
+
+##################################################

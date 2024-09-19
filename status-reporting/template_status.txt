@@ -1,0 +1,227 @@
+Report Template for Slack:
+
+Onyx-0186 is back from a long journey through customs.
+Running in the lab and recording SeaDAS data to SSD1.
+
+sintela@ONYX-0186:/mnt$ df -H
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/mmcblk0p1   30G   16G   13G  54% /
+none             17G     0   17G   0% /dev
+tmpfs            17G  8.1M   17G   1% /dev/shm
+tmpfs            17G  8.6M   17G   1% /run
+tmpfs           5.3M     0  5.3M   0% /run/lock
+tmpfs            17G     0   17G   0% /sys/fs/cgroup
+/dev/nvme0n1p1   34G  3.5G   29G  11% /opt/onyx
+/dev/nvme0n1p2   34G  1.9G   31G   6% /opt/onyx2
+/dev/nvme0n1p3  178G   81M  169G   1% /mnt/intSSD
+/dev/sda1       8.0T  504M  7.6T   1% /mnt/extSSD1
+/dev/sdb1       8.0T   97M  7.6T   1% /mnt/extSSD2
+tmpfs           3.4G     0  3.4G   0% /run/user/1000
+sintela@ONYX-0186:/mnt/extSSD1/ManualRecorders/decimator$ ls | tail
+decimator_2024-09-05_19.17.25_UTC_000000.h5
+decimator_2024-09-05_19.18.25_UTC_000001.h5
+decimator_2024-09-05_19.19.25_UTC_000002.h5
+decimator_2024-09-05_19.20.25_UTC_000003.h5
+decimator_2024-09-05_19.21.25_UTC_000004.h5
+decimator_2024-09-05_19.22.25_UTC_000005.h5
+decimator_2024-09-05_19.23.25_UTC_000006.h5
+isRecording.txt
+
+##############################################
+Rainier:
+Running and recording to SSD1, 2TB Available
+
+Machine Name:
+Onyx 0204
+
+Mount Points
+(sintela@ONYX-0204:/$  df -H /mnt/extSSD1 /mnt/extSSD2 /mnt/extSSD3)
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdb1       8.0T  5.7T  2.0T  75% /mnt/extSSD1
+/dev/sda1       8.0T  7.2T  407G  95% /mnt/extSSD2
+/dev/sdc1       8.0T  4.7T  2.9T  62% /mnt/extSSD3
+
+Contents SSD1 (sintela@ONYX-0204:/mnt/extSSD1/rainier$ ls | tail)
+decimator_2024-09-03_18.38.00_UTC.h5
+decimator_2024-09-03_18.39.00_UTC.h5
+decimator_2024-09-03_18.40.00_UTC.h5
+decimator_2024-09-03_18.41.00_UTC.h5
+decimator_2024-09-03_18.42.00_UTC.h5
+decimator_2024-09-03_18.43.00_UTC.h5
+decimator_2024-09-03_18.44.00_UTC.h5
+decimator_2024-09-03_18.45.00_UTC.h5
+decimator_2024-09-03_18.46.00_UTC.h5
+isRecording.txt
+
+Contents SSD2 ( sintela@ONYX-0204:/mnt/extSSD2/rainier$ ls | tail)
+decimator_2024-08-16_16.10.00_UTC.h5
+decimator_2024-08-16_16.11.00_UTC.h5
+decimator_2024-08-16_16.12.00_UTC.h5
+decimator_2024-08-16_16.13.00_UTC.h5
+decimator_2024-08-16_16.14.00_UTC.h5
+decimator_2024-08-16_16.15.00_UTC.h5
+decimator_2024-08-16_16.16.00_UTC.h5
+decimator_2024-08-16_16.17.00_UTC.h5
+decimator_2024-08-16_16.18.00_UTC.h5
+decimator_2024-08-16_16.19.00_UTC.h5
+
+Contents SSD3 (sintela@ONYX-0204:/mnt/extSSD3/rainier$ ls | tail)
+
+NAS File Storage Status
+sintela@nas_rainier:/$ df -H
+Filesystem              Size  Used Avail Use% Mounted on
+/dev/md0                8.4G  1.5G  6.9G  18% /
+devtmpfs                4.2G     0  4.2G   0% /dev
+tmpfs                   4.2G  246k  4.2G   1% /dev/shm
+tmpfs                   4.2G   17M  4.2G   1% /run
+tmpfs                   4.2G     0  4.2G   0% /sys/fs/cgroup
+tmpfs                   4.2G  738k  4.2G   1% /tmp
+/dev/mapper/cachedev_0   88T   39T   49T  45% /volume1
+
+New Files Since Yesterday (sintela@nas_rainier:/$ ls -1 /volume1/Public/rainier | wc -l)
+
+
+##############################################
+OptoDAS
+Running and recording to local USB Connection, XTB Available
+
+operator@DASSRV056:~> curl http://10.158.15.97:10532/optodas/api/v2/status
+{
+    "InstrumentSerial": 42,
+    "InstrumentStatusOk": true,
+    "Location": "seadas",
+    "StartTime": "",
+    "State": "Running",
+    "StorageStatus": true,
+    "StorageUtilisation": 0.6912557011498602,
+    "instrumentTimeSynchronized": false,
+    "serverTimeSynchronized": true
+}
+
+Mount Points:
+operator@DASSRV056:/mnt> ls -lt
+total 12
+drwxrwxrwx 14 root root 4096 Aug 23 16:35 usb
+drwxr-xr-x  2 root root 4096 May  6 12:35 drive2
+drwxr-xr-x  2 root root 4096 May  6 12:35 drive1
+
+(base) operator@DASSRV056:/mnt> df -H
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.2M     0  4.2M   0% /dev
+tmpfs            34G  406k   34G   1% /dev/shm
+tmpfs            14G  2.2M   14G   1% /run
+tmpfs           4.2M     0  4.2M   0% /sys/fs/cgroup
+/dev/nvme0n1p3   53G   18G   33G  35% /
+/dev/nvme0n1p1  536M  5.2M  531M   1% /boot/efi
+/dev/nvme0n1p4  200G   29G  171G  15% /home
+/dev/sda1        84T   58T   27T  69% /raid1
+tmpfs           6.8G   54k  6.8G   1% /run/user/1000
+/dev/sdc1       4.1T  3.9T   13M 100% /mnt/usb
+
+(base) operator@DASSRV056:/mnt> cd usb/
+(base) operator@DASSRV056:/mnt/usb> ls
+20240802  20240804  20240806  20240808  20240810  20240812
+20240803  20240805  20240807  20240809  20240811  lost+found
+
+##############################################
+Alaska
+
+
+
+
+
+Date: Thu Sep 12 12:42:40 PDT 2024
+ 
+Onyx 0204
+  {
+    Device Status: Running
+    Cable Location: rainier
+    Recording to: extSSD2 and extSSD3 (50Hz)
+
+    Devices and Space Remaining:
+    NAME           SIZE TYPE MOUNTPOINT
+    sda            7.3T disk
+    └─sda1         7.3T part /mnt/extSSD2 -> Used: 1.6T, Remaining: 5.3T, 21.9178% FULL
+    sdb            7.3T disk
+    └─sdb1         7.3T part /mnt/extSSD1 -> Used: 6.1T, Remaining: 797G, 83.5616% FULL
+    sdc            7.3T disk
+    └─sdc1         7.3T part /mnt/extSSD3 -> Used: 4.9T, Remaining: 2.0T, 67.1233% FULL
+    nvme0n1      232.9G disk
+    ├─nvme0n1p1     32G part /opt/onyx -> Used: 3.4G, Remaining: 27G, 10.625% FULL
+    ├─nvme0n1p2     32G part /opt/onyx2 -> Used: 3.0G, Remaining: 27G, 9.375% FULL
+    └─nvme0n1p3  168.9G part /mnt/intSSD -> Used: 78M, Remaining: 157G, 0.0458867% FULL
+  }
+  {
+    Connected to NAS
+    Filesystem              Size  Used Avail Use% Mounted on
+    /dev/md0                8.4G  1.5G  6.9G  18% /
+    devtmpfs                4.2G     0  4.2G   0% /dev
+    tmpfs                   4.2G  246k  4.2G   1% /dev/shm
+    tmpfs                   4.2G   17M  4.2G   1% /run
+    tmpfs                   4.2G     0  4.2G   0% /sys/fs/cgroup
+    tmpfs                   4.2G  738k  4.2G   1% /tmp
+    /dev/mapper/cachedev_0   88T   46T   43T  52% /volume1
+  }
+
+Onyx @AK
+  {
+    Device Status: Running
+    Cable Location: homer
+    Recording to: 
+
+    Devices and Space Remaining:
+    NAME           SIZE TYPE MOUNTPOINT
+    
+  }
+  {
+    VPN Status:
+  }
+  {
+    Connected to NAS
+    Filesystem              Size  Used Avail Use% Mounted on
+
+  }
+
+Onyx 0186
+  {
+    Device Status: Running
+    Cable Location: seaDAS
+    Recording to: sermeq
+
+    Devices and Space Remaining:
+    NAME           SIZE TYPE MOUNTPOINT
+    
+  }
+  {
+    Connected to NAS
+    Filesystem              Size  Used Avail Use% Mounted on
+
+  }
+
+
+OptoDAS SN042
+  {
+    Device Status: Running
+    Cable Location: seadas
+    Storage Used on Active Mountpoint: 74.45564877513787%
+     
+    Devices and Space Remaining:
+    NAME          SIZE TYPE MOUNTPOINT
+    sda          76.4T disk
+    └─sda1       76.4T part /raid1 -> Used: 57T, Remaining: 20T, 74.026% FULL
+    sdc           3.7T disk
+    └─sdc1        3.7T part /mnt/usb -> Used: 3.5T, Remaining: 12M, 94.5946% FULL
+    nvme0n1     238.5G disk
+    ├─nvme0n1p1   512M part /boot/efi -> Used: 5.0M, Remaining: 507M, 0.978474% FULL
+    ├─nvme0n1p2     2G part [SWAP]
+    ├─nvme0n1p3    50G part / -> Used: 17G, Remaining: 31G, 34.6939% FULL
+    └─nvme0n1p4   186G part /home -> Used: 27G, Remaining: 160G, 14.5161% FULL
+  }
+
+Silixa DTS XT21032
+  {
+  }
+
+Febus G1-C DSTS
+  {
+  }

@@ -1,0 +1,62 @@
+Date: Tue Sep 24 08:58:22 PDT 2024
+Status:										
+	Lab Onyx 0106 >		In lab, not running; being configured alongside NAS and CPU for Whidbey Oct1							
+	Repair XT-DTS > 		Checked in with support again: the last tests are being carried out on your unit. As they indicated previously, they were unable to replicate the issue but the cable was replaced and better secured. 							
+	OptoDAS on SeaDAS >		Running							
+				ssh operator@10.158.15.97						
+				(base) operator@DASSRV056:~> echo "Device Status: $(curl -s http://10.158.15.97:10532/optodas/api/v2/status | jq -r '.State')"						
+				Device Status: Running						
+				(base) operator@DASSRV056:~> lsblk -o NAME,SIZE,TYPE,MOUNTPOINT						
+				NAME          SIZE TYPE MOUNTPOINT						
+				sda          76.4T disk 						
+				└─sda1       76.4T part /raid1						
+				sdc           3.7T disk 						
+				└─sdc1        3.7T part /mnt/usb						
+				nvme0n1     238.5G disk 						
+				├─nvme0n1p1   512M part /boot/efi						
+				├─nvme0n1p2     2G part [SWAP]						
+				├─nvme0n1p3    50G part /						
+				└─nvme0n1p4   186G part /home						
+										
+				(base) operator@DASSRV056:~> df -h						
+				Filesystem      Size  Used Avail Use% Mounted on						
+				devtmpfs        4.0M     0  4.0M   0% /dev						
+				tmpfs            32G   15M   32G   1% /dev/shm						
+				tmpfs            13G  2.1M   13G   1% /run						
+				tmpfs           4.0M     0  4.0M   0% /sys/fs/cgroup						
+				/dev/nvme0n1p3   49G   17G   31G  35% /						
+				/dev/nvme0n1p1  511M  5.0M  507M   1% /boot/efi						
+				/dev/nvme0n1p4  186G   27G  160G  15% /home						
+				/dev/sda1        77T   60T   17T  79% /raid1						
+				tmpfs           6.3G   52K  6.3G   1% /run/user/1000						
+				/dev/sdc1       3.7T  3.5T   12M 100% /mnt/usb						
+	Rainier Onyx 0204 >		Temp timing out							
+				~ % ssh -p 10022 sintela@166.144.144.149 						
+				ssh: connect to host 166.144.144.149 port 10022: Operation timed out						
+				~ % ping 166.144.144.149      						
+				PING 166.144.144.149 (166.144.144.149): 56 data bytes						
+				Request timeout for icmp_seq 0						
+				Request timeout for icmp_seq 1						
+				Request timeout for icmp_seq 2						
+				Request timeout for icmp_seq 3						
+	 			Request timeout for icmp_seq 4						
+				Request timeout for icmp_seq 5						
+				Request timeout for icmp_seq 6						
+				^C						
+				--- 166.144.144.149 ping statistics ---						
+				8 packets transmitted, 0 packets received, 100.0% packet loss						
+	Alaska Onyx 0203 >		Running							
+				Filesystem      Size  Used Avail Use% Mounted on						
+				devtmpfs        4.0M     0  4.0M   0% /dev						
+				tmpfs           3.7G     0  3.7G   0% /dev/shm						
+				tmpfs           1.5G  139M  1.4G  10% /run						
+				/dev/sda3        25G  3.0G   22G  13% /						
+				/dev/sda1       966M  212M  689M  24% /boot						
+				tmpfs           758M  4.0K  758M   1% /run/user/39062						
+										
+				NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS						
+				sda      8:0    0   50G  0 disk 						
+				├─sda1   8:1    0 1000M  0 part /boot						
+				├─sda2   8:2    0    2G  0 part [SWAP]						
+				└─sda3   8:3    0 24.4G  0 part /						
+				sr0     11:0    1 1024M  0 rom  						

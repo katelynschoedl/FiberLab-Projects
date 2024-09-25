@@ -1,11 +1,10 @@
 #!/bin/bash
-
 echo "###########################################"
 echo "              Daily Status                 "
 echo "###########################################"
-
 # Export OUTPUT_FILE to make it available to the SSH sessions
 OUTPUT_FILE="$(date +"%m.%d.%Y")_status.txt"
+#OUTPUT_FILE="temp.txt"
 export OUTPUT_FILE
 echo "Date: $(date)" >  $OUTPUT_FILE
 
@@ -30,9 +29,7 @@ RAINIERPASSWORD="20-WST-3n?1n33R"
 SINTELAPASSWORD="5intela_440"
 
 # Define the passwords for the machines
-
 # Define the IP addresses for the machines
-
 # Define the URLs for the Dashboards
 
 echo "Starting..."
@@ -42,6 +39,8 @@ wifi=n
 tunnelblick_vpn=n
 husky_vpn=n
 
+###########################################"
+###########################################"
 # Check WIFI network
 current_ssid=$(networksetup -getairportnetwork en0 | awk -F': ' '{print $2}')
 if [[ "$current_ssid" == "University of Washington" ]]; then
@@ -50,7 +49,8 @@ if [[ "$current_ssid" == "University of Washington" ]]; then
 else
     echo "# Not connected to the University of Washington WiFi network."
 fi
-
+###########################################"
+###########################################"
 # Check if VPN processes are running
 openvpn_processes=$(ps aux | grep tunnelblick | grep -v grep)
 if [ -n "$openvpn_processes" ]; then
@@ -71,10 +71,8 @@ else
     husky_vpn="n"
 fi
 echo " "
-
 ###########################################"
 ###########################################"
-
 echo " "
 echo "###################"
 echo "      Onyx 0204    "
@@ -99,9 +97,10 @@ fi
 echo "###################" 
 echo "   "
 echo "Connecting to Sintela at Rainier..."
+###########################################"
+###########################################"
 sshpass -p "$SINTELAPASSWORD" ssh -T -i "$SSH_KEY_PATH" -p 10022 sintela@166.144.144.149 << 'EOF' | sed 's/^/    /' >> $OUTPUT_FILE
-
-echo "Device Status: Running"
+echo "Device Status: "
 sleep 1.0
 echo "Cable Location: rainier"
 #df -H /mnt/extSSD1 /mnt/extSSD2 /mnt/extSSD3
@@ -197,7 +196,6 @@ echo " "
 
 ###########################################"
 ###########################################"
-
 echo " "
 echo "###################"
 echo "      Onyx 0186    "
@@ -206,10 +204,8 @@ echo " " >> $OUTPUT_FILE
 echo "Onyx 0186" >> $OUTPUT_FILE
 echo "  {" >> $OUTPUT_FILE
 
-
 ###########################################"
 ###########################################"
-
 
 echo "###################"
 echo "       Onyx @AK    "
@@ -217,29 +213,9 @@ echo "###################"
 echo " " >> $OUTPUT_FILE
 echo "Onyx @AK" >> $OUTPUT_FILE
 echo "  {" >> $OUTPUT_FILE
-echo "Temporarily Down"
 echo " "
 
 
-
-##################
-## Template Alaska
-## To ssh into the GPU server, use "ssh -p 27531 user@192.168.10.6" when you are already ssh'd into the alaska_das server
-## If you're sshing from cascadia into rad in order to transfer data to/from the alaska_das server,
-## the default configuration of ssh on cascadia may require you to add a -4 to force it to use IPV4 for the port forwarding. 
-## E.g.: ssh -p 27531 -4 -L 8888:192.168.128.2:27531 efwillia@rad.ess.washington.edu
-
-#echo "Connect to Tunnelblick VPN"
-#read -p "Are you connected to the Gator Configuration? (y/n):" vpn_status
-
-#if [[ "$vpn_status" == "y" || "$vpn_status" == "Y" ]]; then
-#    echo "You are connected to the Tunnelblick VPN, Gator Configuration."
-#    # Add any commands or tasks that require VPN/WiFi connection here
-#else
-#    echo "You must be connected to the Tunnelblick VPN."
-#    exit 1
-#fi
-##
 #echo "UW WiFi Shortcut"
 #read -p "Are you connected to the UW VPN? (y/n):" port_number
 #if [[ "$vpn_status" == "y" || "$vpn_status" == "Y" ]]; then
@@ -251,24 +227,28 @@ echo " "
 #fi
 ##
 
-#echo "Connecting to RAD (Gateway Server)..."
-#ssh -p 27531 kschoedl@rad.ess.washington.edu
-#echo "Logged in user @ RAD Gateway Server."
-#echo "Proceeding to checks."
-##Check structure and space
-#df -h
-####Filesystem      Size  Used Avail Use% Mounted on
-####devtmpfs        4.0M     0  4.0M   0% /dev
-####tmpfs           3.7G     0  3.7G   0% /dev/shm
-####tmpfs           1.5G  138M  1.4G  10% /run
-####/dev/sda3        25G  3.0G   22G  13% /
-####/dev/sda1       966M  212M  689M  24% /boot
-####tmpfs           758M  4.0K  758M   1% /run/user/39205
-####tmpfs           758M  4.0K  758M   1% /run/user/39062
-##
-#echo "alaska_das_IP=192.168.10.3"
-#echo "alaska_nas_IP= "
-#echo "alaska
+
+echo "OpenSense Router Port forward..."
+ssh -p 27531 -L 8443:192.168.128.2:443 kschoedl@rad.ess.washington.edu << 'EOF' | sed 's/^/    /' >> $OUTPUT_FILE
+echo df -hT 
+EOF
+open -a "Google Chrome" https://127.0.0.1:8443/?url=/dashboard/
+
+
+echo "Connecting to RAD (Gateway Server)..."
+ssh -p 27531 kschoedl@rad.ess.washington.edu << 'EOF' | sed 's/^/    /' >> $OUTPUT_FILE
+echo df -hT
+
+echo "Connecting to Alaska DAS..."
+ssh -p 27531 kschoedl@192.168.128.2 << 'EOF' | sed 's/^/    /' >> $OUTPUT_FILE
+echo df -hT 
+
+echo "Connecting to Onyx 0203..."
+ssh sintela@192.168.10.5 << 'EOF' | sed 's/^/    /' >> $OUTPUT_FILE
+echo df -hT 
+
+
+
 ##Connect to Alaska DAS Server with Device IP Address
 #ping -c 10 $alaska_das_IP.ess.washington.edu > /dev/null &
 #wait $!
@@ -288,8 +268,6 @@ echo " "
 #sshpass -p "$temp_pass" ssh $temp_user@$alaska_das_IP
 #NAS
 #ONYX
-
-
 
 ###########################################"
 ###########################################"

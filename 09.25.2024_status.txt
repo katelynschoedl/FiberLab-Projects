@@ -1,0 +1,48 @@
+Date: Wed Sep 25 10:40:42 PDT 2024
+Status:									
+	Lab Onyx 0106 >		In lab, not running; will be testing on SeaDAS today for Orcas next week
+  Repair XT-DTS > 		JM will check in about the testing.
+  OptoDAS on SeaDAS > In lab, currently running
+      Filesystem     Type      Size  Used Avail Use% Mounted on
+      devtmpfs       devtmpfs  4.0M     0  4.0M   0% /dev
+      tmpfs          tmpfs      32G   15M   32G   1% /dev/shm
+      tmpfs          tmpfs      13G  2.1M   13G   1% /run
+      tmpfs          tmpfs     4.0M     0  4.0M   0% /sys/fs/cgroup
+      /dev/nvme0n1p3 ext4       49G   17G   31G  35% /
+      /dev/nvme0n1p1 vfat      511M  5.0M  507M   1% /boot/efi
+      /dev/nvme0n1p4 xfs       186G   27G  160G  15% /home
+      /dev/sda1      xfs        77T   60T   17T  79% /raid1
+      tmpfs          tmpfs     6.3G   52K  6.3G   1% /run/user/1000
+      /dev/sdc1      ext4      3.7T  3.5T   12M 100% /mnt/usb
+
+	Rainier Onyx 0204 >		Still timing out?							
+				~ % ssh -p 10022 sintela@166.144.144.149 						
+				ssh: connect to host 166.144.144.149 port 10022: Operation timed out						
+				~ % ping 166.144.144.149      						
+				PING 166.144.144.149 (166.144.144.149): 56 data bytes						
+				Request timeout for icmp_seq 0						
+				Request timeout for icmp_seq 1						
+				Request timeout for icmp_seq 2						
+				Request timeout for icmp_seq 3						
+	 			Request timeout for icmp_seq 4						
+				Request timeout for icmp_seq 5						
+				Request timeout for icmp_seq 6						
+				^C						
+				--- 166.144.144.149 ping statistics ---						
+				8 packets transmitted, 0 packets received, 100.0% packet loss
+    
+	Alaska Onyx 0203 >		Running							
+      Filesystem           Type      Size  Used Avail Use% Mounted on
+      /dev/mmcblk0p1       ext4       28G   16G   11G  60% /
+      none                 devtmpfs   16G     0   16G   0% /dev
+      tmpfs                tmpfs      16G  7.7M   16G   1% /dev/shm
+      tmpfs                tmpfs      16G  151M   16G   1% /run
+      tmpfs                tmpfs     5.0M     0  5.0M   0% /run/lock
+      tmpfs                tmpfs      16G     0   16G   0% /sys/fs/cgroup 
+      /dev/sdb1            ext4      1.8T  942G  729G  57% /mnt/extSSD1
+      /dev/sda1            ext4      1.8T  690G  981G  42% /mnt/extSSD2
+      /dev/nvme0n1p2       ext4       32G  3.7G   27G  13% /opt/onyx2
+      /dev/nvme0n1p1       ext4       32G  4.6G   26G  16% /opt/onyx
+      /dev/nvme0n1p3       ext4      166G  3.5G  154G   3% /mnt/intSSD
+      192.168.10.4:/Public nfs       163T  141T   23T  87% /mnt/qnap
+      tmpfs                tmpfs     3.2G     0  3.2G   0% /run/user/1000

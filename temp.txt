@@ -1,0 +1,53 @@
+Date: Tue Sep 24 11:57:54 PDT 2024
+ 
+Onyx 0204
+  {
+  }
+    Connected to NAS
+    
+    Filesystem              Size  Used Avail Use% Mounted on
+    /dev/md0                8.4G  1.5G  6.9G  18% /
+    devtmpfs                4.2G     0  4.2G   0% /dev
+    tmpfs                   4.2G  246k  4.2G   1% /dev/shm
+    tmpfs                   4.2G   16M  4.2G   1% /run
+    tmpfs                   4.2G     0  4.2G   0% /sys/fs/cgroup
+    tmpfs                   4.2G  1.3M  4.2G   1% /tmp
+    /dev/mapper/cachedev_0   88T   46T   43T  52% /volume1
+    
+    Most recent files:
+    @eaDir
+    rainier
+     
+    @eaDir/:
+      Last 10 items in @eaDir/:
+      NO_ITEMS
+    
+ 
+ 
+Onyx 0186
+  {
+ 
+Onyx @AK
+  {
+    df -hT
+    Connecting to Alaska DAS...
+ 
+OptoDAS
+  {
+    Device Status: Running
+    Cable Location: seadas
+    Storage Used on Active Mountpoint: 78.19316258740079%
+     
+    Devices and Space Remaining:
+    NAME          SIZE TYPE MOUNTPOINT
+    sda          76.4T disk
+    └─sda1       76.4T part /raid1 -> Used: 60T, Remaining: 17T, 77.9221% FULL
+    sdc           3.7T disk
+    └─sdc1        3.7T part /mnt/usb -> Used: 3.5T, Remaining: 12M, 94.5946% FULL
+    nvme0n1     238.5G disk
+    ├─nvme0n1p1   512M part /boot/efi -> Used: 5.0M, Remaining: 507M, 0.978474% FULL
+    ├─nvme0n1p2     2G part [SWAP]
+    ├─nvme0n1p3    50G part / -> Used: 17G, Remaining: 31G, 34.6939% FULL
+    └─nvme0n1p4   186G part /home -> Used: 27G, Remaining: 160G, 14.5161% FULL
+  }
+
